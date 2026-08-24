@@ -1,0 +1,34 @@
+services:
+  # Fraud Risk Scoring FastAPI Service
+  fraud-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fraud_detection_api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+      - MLFLOW_TRACKING_URI=http://mlflow-server:5000
+    volumes:
+      - ./models:/app/models
+      - ./logs:/app/logs
+    depends_on:
+      - mlflow-server
+
+  # Local MLflow Experiment Tracking Dashboard
+  mlflow-server:
+    image: python:3.11-slim
+    container_name: fraud_mlflow_server
+    restart: unless-stopped
+    working_dir: /mlflow
+    command: >
+      sh -c "pip install --no-cache-dir mlflow &&
+             mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri sqlite:///mlflow.db --default-artifact-root /mlflow/artifacts"
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./mlruns:/mlflow/artifacts
+      - ./mlflow_db:/mlflow

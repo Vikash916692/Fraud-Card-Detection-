@@ -1,0 +1,58 @@
+{
+  "selected_model": "XGBoost_Class_Weighted",
+  "selection_criterion": "Highest Test AUC-PR (Precision-Recall AUC under severe class imbalance)",
+  "models": {
+    "Logistic_Regression_Baseline": {
+      "precision": 0.059484467944481166,
+      "recall": 0.9183673469387755,
+      "f1_score": 0.11173184357541899,
+      "auc_roc": 0.9737566646664293,
+      "auc_pr": 0.7206565315671686,
+      "ks_statistic": 0.9013442743445156,
+      "ks_pvalue": 5.429065257183955e-99,
+      "threshold": 0.5,
+      "true_positives": 90,
+      "false_positives": 1423,
+      "true_negatives": 55441,
+      "false_negatives": 8,
+      "total_test_samples": 56962,
+      "actual_fraud_samples": 98,
+      "model_name": "Logistic_Regression_Baseline"
+    },
+    "XGBoost_Class_Weighted": {
+      "precision": 0.8901098901098901,
+      "recall": 0.826530612244898,
+      "f1_score": 0.8571428571428571,
+      "auc_roc": 0.9797044398091257,
+      "auc_pr": 0.8680983516238444,
+      "ks_statistic": 0.8959192286931655,
+      "ks_pvalue": 1.0462571840271721e-96,
+      "threshold": 0.5,
+      "true_positives": 81,
+      "false_positives": 10,
+      "true_negatives": 56854,
+      "false_negatives": 17,
+      "total_test_samples": 56962,
+      "actual_fraud_samples": 98,
+      "model_name": "XGBoost_Class_Weighted",
+      "best_cv_auc_pr": 0.8419360211635885
+    },
+    "XGBoost_SMOTE": {
+      "precision": 0.7033898305084746,
+      "recall": 0.8469387755102041,
+      "f1_score": 0.7685185185185185,
+      "auc_roc": 0.9760622013999747,
+      "auc_pr": 0.8575185089715169,
+      "ks_statistic": 0.9049274746477094,
+      "ks_pvalue": 1.4357060392547042e-100,
+      "threshold": 0.5,
+      "true_positives": 83,
+      "false_positives": 35,
+      "true_negatives": 56829,
+      "false_negatives": 15,
+      "total_test_samples": 56962,
+      "actual_fraud_samples": 98,
+      "model_name": "XGBoost_SMOTE"
+    }
+  }
+}
